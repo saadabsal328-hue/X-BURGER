@@ -112,31 +112,37 @@
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center gap-1 bg-charcoal-800 p-1.5 rounded-full border border-charcoal-100 shadow-inner">
                     <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-5 py-2 rounded-full text-sm font-bold transition-all ivory-btn shadow-md">
-                        <i class="fa-solid fa-house ml-1.5"></i> الرئيسية
+                        <i class="fa-solid fa-house ml-1.5"></i> <span id="txt-nav-home">الرئيسية</span>
                     </button>
                     <button onclick="switchTab('menu')" id="nav-menu" class="nav-btn px-5 py-2 rounded-full text-sm font-bold text-ivory hover:text-white transition-all">
-                        <i class="fa-solid fa-burger ml-1.5"></i> قائمة الطعام
+                        <i class="fa-solid fa-burger ml-1.5"></i> <span id="txt-nav-menu">قائمة الطعام</span>
                     </button>
                     <button onclick="switchTab('hall-order')" id="nav-hall-order" class="nav-btn px-5 py-2 rounded-full text-sm font-bold text-ivory hover:text-white transition-all hidden">
-                        <i class="fa-solid fa-chair ml-1.5"></i> طلبيات الصالة
+                        <i class="fa-solid fa-chair ml-1.5"></i> <span id="txt-nav-hall-order">طلبيات الصالة</span>
                     </button>
                     <button onclick="switchTab('orders-status')" id="nav-orders-status" class="nav-btn px-5 py-2 rounded-full text-sm font-bold text-ivory hover:text-white transition-all hidden">
-                        <i class="fa-solid fa-cash-register ml-1.5"></i> حالة الطلبات
+                        <i class="fa-solid fa-cash-register ml-1.5"></i> <span id="txt-nav-orders-status">حالة الطلبات</span>
                     </button>
                     <button onclick="switchTab('kitchen')" id="nav-kitchen" class="nav-btn px-5 py-2 rounded-full text-sm font-bold text-ivory hover:text-white transition-all relative hidden">
-                        <i class="fa-solid fa-fire-burner ml-1.5"></i> المطبخ
+                        <i class="fa-solid fa-fire-burner ml-1.5"></i> <span id="txt-nav-kitchen">المطبخ</span>
                         <span id="kitchen-badge" class="bg-amber-500 text-charcoal text-[11px] font-black px-2 py-0.5 rounded-full mr-1.5 hidden">0</span>
                     </button>
                     <button onclick="switchTab('location')" id="nav-location" class="nav-btn px-5 py-2 rounded-full text-sm font-bold text-ivory hover:text-white transition-all">
-                        <i class="fa-solid fa-location-dot ml-1.5"></i> موقعنا
+                        <i class="fa-solid fa-location-dot ml-1.5"></i> <span id="txt-nav-location">موقعنا</span>
                     </button>
                     <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn px-5 py-2 rounded-full text-sm font-bold text-ivory hover:text-white transition-all hidden">
-                        <i class="fa-solid fa-user-shield ml-1.5"></i> لوحة الأدمن
+                        <i class="fa-solid fa-user-shield ml-1.5"></i> <span id="txt-nav-admin">لوحة الأدمن</span>
                     </button>
                 </nav>
 
                 <!-- Header Actions -->
                 <div class="flex items-center gap-3">
+                    <!-- Live Status Badge in Header -->
+                    <div id="header-status-badge" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-black transition-all">
+                        <span id="header-status-dot" class="w-2.5 h-2.5 rounded-full"></span>
+                        <span id="header-status-text">...</span>
+                    </div>
+
                     <!-- Cart Button -->
                     <button onclick="toggleCartModal()" class="relative p-3 rounded-2xl bg-charcoal-800 border border-charcoal-100 text-ivory hover:bg-ivory hover:text-charcoal transition-all shadow-sm">
                         <i class="fa-solid fa-cart-shopping text-lg"></i>
@@ -210,29 +216,30 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
                         
-                        <!-- Text Content (Appears on Right in RTL) -->
+                        <!-- Text Content -->
                         <div class="text-right space-y-5 order-2 md:order-1">
-                            <span class="inline-block bg-charcoal-800 text-ivory font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full border border-charcoal-100 shadow-sm backdrop-blur-sm">
+                            <span id="home-hero-badge" class="inline-block bg-charcoal-800 text-ivory font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full border border-charcoal-100 shadow-sm backdrop-blur-sm">
                                 ✨ التجربة الاستثنائية للمذاق الفاخر
                             </span>
                             
-                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-ivory leading-snug tracking-tight">
+                            <h1 id="home-hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-black text-ivory leading-relaxed tracking-tight">
                                 وجهتك الأولى لأطيب <span class="ivory-gradient-text">البرغرات</span> والسندويشات
                             </h1>
-
-                            <p class="text-ivory/90 text-base sm:text-lg font-bold leading-relaxed">
-                                في <strong class="ivory-gradient-text font-black">X BURGER</strong>، نعدك برحلة مذاق لا تُنسى! نقدم لكم أشهى أنواع البرجر والسندويشات المحضرة يومياً بشغف من أجود المكونات الطازجة، بجانب تشكيلتنا السرية والمبتكرة من الصلصات الخاصة التي تمنح وجبتك نكهة خرافية لا تُقاوم.
-                            </p>
-
-                            <!-- Working Hours Banner -->
-                            <div class="pt-1">
+                            
+                            <!-- Working Hours Banner & Status Badge -->
+                            <div class="pt-1 flex flex-wrap items-center gap-3">
                                 <div class="inline-flex items-center gap-2.5 bg-charcoal-800 text-ivory font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-2xl border border-charcoal-100 shadow-sm">
                                     <i class="fa-solid fa-clock text-ivory"></i>
-                                    <span>أوقات العمل: يومياً من <strong class="text-white">10:00 صباحاً</strong> حتى <strong class="text-white">4:00 فجراً</strong></span>
+                                    <span id="home-hero-hours">أوقات العمل: يومياً من <strong class="text-white">10:00 صباحاً</strong> حتى <strong class="text-white">4:00 فجراً</strong></span>
+                                </div>
+
+                                <div id="hero-status-badge" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl border text-xs sm:text-sm font-black transition-all shadow-sm">
+                                    <span id="hero-status-dot" class="w-2.5 h-2.5 rounded-full"></span>
+                                    <span id="hero-status-text"></span>
                                 </div>
                             </div>
 
-                            <!-- Social Media Links Section on Home Page (Icons Only) -->
+                            <!-- Social Media Links -->
                             <div class="pt-2 flex items-center gap-3">
                                 <a href="https://www.tiktok.com/@xburgeriraq" target="_blank" rel="noopener noreferrer" title="تيك توك" aria-label="TikTok" 
                                    class="w-11 h-11 inline-flex items-center justify-center bg-charcoal-800 hover:bg-ivory hover:text-charcoal text-ivory border border-charcoal-100 rounded-2xl text-lg transition-all shadow-sm hover:scale-110">
@@ -252,12 +259,12 @@
                             <div class="pt-2">
                                 <button onclick="switchTab('menu')" class="inline-flex items-center gap-2.5 ivory-btn font-black text-base px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl active:scale-95 transition-all duration-300">
                                     <i class="fa-solid fa-utensils"></i>
-                                    <span>استكشف المنيو واطلب الآن</span>
+                                    <span id="home-hero-cta">استكشف المنيو واطلب الآن</span>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Image Container (Appears on Left in RTL) -->
+                        <!-- Image Container -->
                         <div class="flex justify-center items-center order-1 md:order-2">
                             <div class="relative max-w-sm sm:max-w-md w-full flex justify-center items-center">
                                 <img src="XBURGER.png" 
@@ -276,10 +283,10 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex flex-col sm:flex-row items-center justify-between mb-10 pb-4 border-b border-charcoal-100 gap-4">
                         <div class="text-right">
-                            <span class="text-ivory font-extrabold text-xs bg-charcoal-700 px-4 py-1.5 rounded-full border border-charcoal-100 shadow-sm">
+                            <span id="home-offers-badge" class="text-ivory font-extrabold text-xs bg-charcoal-700 px-4 py-1.5 rounded-full border border-charcoal-100 shadow-sm">
                                 🔥 توفير خاص لفترة محدودة
                             </span>
-                            <h2 class="text-3xl sm:text-4xl font-black text-ivory mt-3">العروض الحصرية</h2>
+                            <h2 id="home-offers-title" class="text-3xl sm:text-4xl font-black text-ivory mt-3">العروض الحصرية</h2>
                         </div>
                     </div>
 
@@ -295,7 +302,7 @@
                 
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-charcoal-100 pb-6">
                     <div>
-                        <h2 class="text-3xl sm:text-4xl font-black text-ivory mt-2">اختر وجبتك المفضلة 🍔</h2>
+                        <h2 id="menu-header-title" class="text-3xl sm:text-4xl font-black text-ivory mt-2">اختر وجبتك المفضلة 🍔</h2>
                     </div>
                 </div>
 
@@ -305,7 +312,7 @@
                 </div>
 
                 <!-- Menu Items Grid -->
-                <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-300">
+                <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-300 transform">
                     <!-- Dynamic rendering via JS -->
                 </div>
 
@@ -506,16 +513,16 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center md:text-right max-w-2xl mx-auto md:max-w-none mb-8 pb-6 border-b border-charcoal-100">
-                    <span class="inline-block bg-charcoal-800 text-ivory font-extrabold text-xs px-4 py-1.5 rounded-full border border-charcoal-100 shadow-sm mb-3">
+                    <span id="loc-section-badge" class="inline-block bg-charcoal-800 text-ivory font-extrabold text-xs px-4 py-1.5 rounded-full border border-charcoal-100 shadow-sm mb-3">
                         📍 فرعنا وموقعنا
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-ivory">زورونا في مطعم X BURGER</h2>
-                    <p class="text-ivory/80 text-sm font-bold mt-2">يسعدنا استقبالكم للاستمتاع بأطيب البرغرات والوجبات الطازجة يومياً.</p>
+                    <h2 id="loc-section-title" class="text-3xl sm:text-4xl font-black text-ivory">زورونا في مطعم X BURGER</h2>
+                    <p id="loc-section-subtitle" class="text-ivory/80 text-sm font-bold mt-2">يسعدنا استقبالكم للاستمتاع بأطيب البرغرات والوجبات الطازجة يومياً.</p>
                 </div>
 
                 <div class="max-w-2xl mx-auto">
                     <div class="card-custom p-6 sm:p-8 rounded-3xl border border-charcoal-100 shadow-lg">
-                        <h3 class="text-xl font-black text-ivory mb-6 flex items-center gap-2 border-b border-charcoal-100 pb-4">
+                        <h3 id="loc-card-title" class="text-xl font-black text-ivory mb-6 flex items-center gap-2 border-b border-charcoal-100 pb-4">
                             <i class="fa-solid fa-map-pin text-ivory"></i>
                             <span>تفاصيل الموقع والتواصل</span>
                         </h3>
@@ -526,8 +533,8 @@
                                     <i class="fa-solid fa-location-dot text-lg"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-xs text-ivory/70 font-extrabold mb-0.5">العنوان</span>
-                                    <span class="text-ivory text-base">أربيل، العراق - الفرع الرئيسي</span>
+                                    <span id="loc-addr-label" class="block text-xs text-ivory/70 font-extrabold mb-0.5">العنوان</span>
+                                    <span id="loc-addr-val" class="text-ivory text-base">أربيل، العراق - الفرع الرئيسي</span>
                                 </div>
                             </div>
 
@@ -535,9 +542,15 @@
                                 <div class="w-10 h-10 rounded-xl bg-charcoal-700 text-ivory flex items-center justify-center shrink-0 border border-charcoal-100">
                                     <i class="fa-solid fa-clock text-lg"></i>
                                 </div>
-                                <div>
-                                    <span class="block text-xs text-ivory/70 font-extrabold mb-0.5">أوقات العمل</span>
-                                    <span class="text-ivory text-base">يومياً من الساعة 10:00 صباحاً حتى 4:00 فجراً</span>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between gap-2 mb-1">
+                                        <span id="loc-hours-label" class="block text-xs text-ivory/70 font-extrabold">أوقات العمل</span>
+                                        <div id="loc-status-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-black">
+                                            <span id="loc-status-dot" class="w-2 h-2 rounded-full"></span>
+                                            <span id="loc-status-text"></span>
+                                        </div>
+                                    </div>
+                                    <span id="loc-hours-val" class="text-ivory text-base">يومياً من الساعة 10:00 صباحاً حتى 4:00 فجراً</span>
                                 </div>
                             </div>
 
@@ -546,7 +559,7 @@
                                     <i class="fa-solid fa-phone text-lg"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-xs text-ivory/70 font-extrabold mb-0.5">رقم الهاتف والتوصيل</span>
+                                    <span id="loc-phone-label" class="block text-xs text-ivory/70 font-extrabold mb-0.5">رقم الهاتف والتوصيل</span>
                                     <a href="tel:+9647701070005" dir="ltr" class="text-ivory hover:text-white transition-colors text-base font-extrabold inline-block" style="unicode-bidi: isolate;">
                                         +964 770 107 0005
                                     </a>
@@ -559,7 +572,7 @@
                                     <i class="fa-brands fa-tiktok text-lg"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-xs text-ivory/70 font-extrabold mb-0.5">حساب تيك توك الرسمي</span>
+                                    <span id="loc-tiktok-label" class="block text-xs text-ivory/70 font-extrabold mb-0.5">حساب تيك توك الرسمي</span>
                                     <a href="https://www.tiktok.com/@xburgeriraq" target="_blank" rel="noopener noreferrer" class="text-ivory hover:text-white transition-colors text-base font-extrabold flex items-center gap-2">
                                         <span>@xburgeriraq</span>
                                         <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
@@ -573,7 +586,7 @@
                                     <i class="fa-brands fa-instagram text-lg"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-xs text-ivory/70 font-extrabold mb-0.5">حساب الانستغرام الرسمي</span>
+                                    <span id="loc-insta-label" class="block text-xs text-ivory/70 font-extrabold mb-0.5">حساب الانستغرام الرسمي</span>
                                     <a href="https://www.instagram.com/xburger.iq?stkn=OW9iZzRtejRkNGww" target="_blank" rel="noopener noreferrer" class="text-ivory hover:text-white transition-colors text-base font-extrabold flex items-center gap-2">
                                         <span>@xburger.iq</span>
                                         <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
@@ -587,7 +600,7 @@
                             <a href="https://maps.app.goo.gl/6rWwFV88e3Vs5Tt47" target="_blank" rel="noopener noreferrer" 
                                class="w-full ivory-btn font-black py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 text-base">
                                 <i class="fa-solid fa-map-location-dot text-xl"></i>
-                                <span>افتح الموقع في خرائط Google</span>
+                                <span id="loc-map-btn">افتح الموقع في خرائط Google</span>
                             </a>
                         </div>
                     </div>
@@ -1055,83 +1068,256 @@
     <div id="toast-container" class="fixed bottom-5 right-5 left-5 sm:left-auto sm:w-96 z-50 pointer-events-none space-y-2"></div>
 
     <footer class="py-6 border-t border-charcoal-100 text-center text-xs font-bold text-ivory/70 bg-charcoal-800">
-        <p>جميع الحقوق محفوظة © X <span onclick="openPinModal()" class="cursor-pointer font-normal text-ivory hover:text-amber-400 hover:underline transition-colors select-none">BURGER</span></p>
+        <p><span id="footer-rights">جميع الحقوق محفوظة ©</span> X <span onclick="openPinModal()" class="cursor-pointer font-normal text-ivory hover:text-amber-400 hover:underline transition-colors select-none">BURGER</span></p>
     </footer>
+
+    <!-- Firebase SDK Imports -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        window.getBusinessDayKey = function(date = new Date()) {
+            const d = new Date(date);
+            d.setHours(d.getHours() - 8);
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCn18eVQgnLLDUNo8M9sEOSukLyJmV_BOc",
+            authDomain: "x-burger-a2127.firebaseapp.com",
+            projectId: "x-burger-a2127",
+            storageBucket: "x-burger-a2127.firebasestorage.app",
+            messagingSenderId: "580169188653",
+            appId: "1:580169188653:web:37827e49b4f970d873ffa4",
+            measurementId: "G-37B2SFJC3V"
+        };
+
+        let app, auth, db;
+
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+
+            signInAnonymously(auth).catch(() => {});
+            initRealtimeSync();
+        } catch (e) {
+            console.warn("Firebase running in offline fallback mode:", e);
+        }
+
+        // Firestore Cloud Synchronization Helper Functions
+        window.cloudSaveOrder = async function(order) {
+            if (!db) return;
+            try { await setDoc(doc(db, 'orders', String(order.id)), order); } catch (e) {}
+        };
+
+        window.cloudUpdateOrderStatus = async function(orderId, status) {
+            if (!db) return;
+            try { await setDoc(doc(db, 'orders', String(orderId)), { status: status }, { merge: true }); } catch (e) {}
+        };
+
+        window.cloudMarkOrderPaid = async function(orderId) {
+            if (!db) return;
+            try { await setDoc(doc(db, 'orders', String(orderId)), { paid: true }, { merge: true }); } catch (e) {}
+        };
+
+        window.cloudSaveDish = async function(dish) {
+            if (!db) return;
+            try { await setDoc(doc(db, 'menuItems', String(dish.id)), dish); } catch (e) {}
+        };
+
+        window.cloudDeleteDish = async function(dishId) {
+            if (!db) return;
+            try { await deleteDoc(doc(db, 'menuItems', String(dishId))); } catch (e) {}
+        };
+
+        window.cloudSaveOffer = async function(offer) {
+            if (!db) return;
+            try { await setDoc(doc(db, 'offers', String(offer.id)), offer); } catch (e) {}
+        };
+
+        window.cloudDeleteOffer = async function(offerId) {
+            if (!db) return;
+            try { await deleteDoc(doc(db, 'offers', String(offerId))); } catch (e) {}
+        };
+
+        window.cloudSaveCategory = async function(category) {
+            if (!db) return;
+            try { await setDoc(doc(db, 'categories', String(category.id)), category); } catch (e) {}
+        };
+
+        window.cloudDeleteCategory = async function(catId) {
+            if (!db) return;
+            try { await deleteDoc(doc(db, 'categories', String(catId))); } catch (e) {}
+        };
+
+        function initRealtimeSync() {
+            if (!db) return;
+
+            // 1. Sync Orders
+            onSnapshot(collection(db, 'orders'), (snapshot) => {
+                const fetchedOrders = [];
+                snapshot.forEach(d => fetchedOrders.push({ id: d.id, ...d.data() }));
+
+                window.kitchenOrders = fetchedOrders.filter(o => o.status === 'preparing');
+                window.activeHallOrders = fetchedOrders.filter(o => o.status === 'prepared');
+
+                const currentDayKey = window.getBusinessDayKey();
+                const paidOrdersToday = fetchedOrders.filter(o => o.paid && o.businessDayKey === currentDayKey);
+                window.totalRevenue = paidOrdersToday.reduce((sum, o) => sum + (o.totalPrice || 0), 0);
+                window.paidOrdersCount = paidOrdersToday.length;
+
+                if (typeof window.updateKitchenBadges === 'function') window.updateKitchenBadges();
+                if (typeof window.renderKitchenOrders === 'function') window.renderKitchenOrders();
+                if (typeof window.renderOrdersStatus === 'function') window.renderOrdersStatus();
+            }, (err) => console.warn("Orders sync error:", err));
+
+            // 2. Sync Menu Items
+            onSnapshot(collection(db, 'menuItems'), (snapshot) => {
+                if (!snapshot.empty) {
+                    const fetchedItems = [];
+                    snapshot.forEach(d => fetchedItems.push({ id: d.id, ...d.data() }));
+                    window.menuItems = fetchedItems;
+                    localStorage.setItem('xburger_menuItems', JSON.stringify(window.menuItems));
+                    if (typeof window.renderMenuGrid === 'function') window.renderMenuGrid();
+                    if (typeof window.renderHallDishGrid === 'function') window.renderHallDishGrid();
+                    if (typeof window.updateAdminTable === 'function') window.updateAdminTable();
+                }
+            }, (err) => console.warn("MenuItems sync error:", err));
+
+            // 3. Sync Offers
+            onSnapshot(collection(db, 'offers'), (snapshot) => {
+                if (!snapshot.empty) {
+                    const fetchedOffers = [];
+                    snapshot.forEach(d => fetchedOffers.push({ id: d.id, ...d.data() }));
+                    window.offers = fetchedOffers;
+                    localStorage.setItem('xburger_offers', JSON.stringify(window.offers));
+                    if (typeof window.renderHomeOffers === 'function') window.renderHomeOffers();
+                    if (typeof window.renderAdminOffersTable === 'function') window.renderAdminOffersTable();
+                }
+            }, (err) => console.warn("Offers sync error:", err));
+
+            // 4. Sync Categories
+            onSnapshot(collection(db, 'categories'), (snapshot) => {
+                if (!snapshot.empty) {
+                    const fetchedCategories = [];
+                    snapshot.forEach(d => fetchedCategories.push({ id: d.id, ...d.data() }));
+                    
+                    // Always guarantee 'all' category exists first
+                    const hasAll = fetchedCategories.some(c => c.id === 'all');
+                    if (!hasAll) {
+                        fetchedCategories.unshift({ id: 'all', name: 'الكل', icon: 'fa-layer-group' });
+                    }
+                    window.categories = fetchedCategories;
+                    localStorage.setItem('xburger_categories', JSON.stringify(window.categories));
+                    if (typeof window.renderCategoryCards === 'function') window.renderCategoryCards();
+                    if (typeof window.renderHallCategoryPills === 'function') window.renderHallCategoryPills();
+                    if (typeof window.updateCategoryDropdown === 'function') window.updateCategoryDropdown();
+                    if (typeof window.renderManageCategoriesList === 'function') window.renderManageCategoriesList();
+                }
+            }, (err) => console.warn("Categories sync error:", err));
+        }
+    </script>
 
     <script>
         let currentLang = 'ar';
 
+        const statusTranslations = {
+            ar: { open: 'مفتوح الآن 🟢', closed: 'مغلق حالياً 🔴' },
+            ku: { open: 'کراوەیە 🟢', closed: 'داخراوە 🔴' },
+            en: { open: 'Open Now 🟢', closed: 'Closed Now 🔴' }
+        };
+
         const categoryTranslations = {
             ar: {
                 'all': 'الكل',
-                'burger-beef': 'برجر لحم',
-                'burger-chicken': 'برجر دجاج',
-                'appetizers': 'مقبلات وبطاطس',
-                'bites-wings': 'بايتس وأجنحة',
+                'burger-beef': 'برغر اللحم',
+                'burger-chicken': 'برغر الدجاج',
+                'wrap': 'الراب',
                 'hotdog': 'هوت دوغ',
-                'wrap': 'وجبات راب',
-                'salads': 'سلطات',
-                'drinks': 'مشروبات'
+                'kids-meals': 'وجبات الأطفال',
+                'side-dishes': 'الأطباق الجانبية',
+                'bites-wings': 'البايتس والأجنحة',
+                'strips': 'استربس',
+                'salads': 'السلطات',
+                'drinks': 'المشروبات',
+                'sauces': 'الصوصات والإضافات',
+                'hot-drinks': 'المشروبات الساخنة',
+                'cold-drinks': 'مشروبات وعصائر باردة',
+                'crepes': 'الكريب',
+                'fruits': 'فواكه',
+                'nuts': 'المكسرات',
+                'hookah': 'اراكيل'
             },
             ku: {
                 'all': 'هەمووی',
-                'burger-beef': 'بەرگەری گوشت',
-                'burger-chicken': 'بەرگەری مریشک',
-                'appetizers': 'مەزە و پەتاتە',
-                'bites-wings': 'بایتس و باڵ',
+                'burger-beef': 'بەرگری گۆشت',
+                'burger-chicken': 'بەرگری مریشك',
+                'wrap': 'ڕاپ',
                 'hotdog': 'هۆت دۆگ',
-                'wrap': 'ژەمەکانی ڕاپ',
+                'kids-meals': 'ژەمی منداڵان',
+                'side-dishes': 'خواردنی لاوەکی',
+                'bites-wings': 'بایتس و باڵ',
+                'strips': 'ستریپس',
                 'salads': 'زەڵاتە',
-                'drinks': 'خواردنەوەکان'
+                'drinks': 'خواردنەوەکان',
+                'sauces': 'سۆس و زیادکراوەکان',
+                'hot-drinks': 'خواردنەوە گەرمەکان',
+                'cold-drinks': 'خواردنەوە ساردەکان و شەربەت',
+                'crepes': 'کرێپ',
+                'fruits': 'میوە',
+                'nuts': 'چەرەسات',
+                'hookah': 'نێرگەلە'
             },
             en: {
                 'all': 'All',
                 'burger-beef': 'Beef Burger',
                 'burger-chicken': 'Chicken Burger',
-                'appetizers': 'Appetizers & Fries',
-                'bites-wings': 'Bites & Wings',
+                'wrap': 'Wrap',
                 'hotdog': 'Hot Dog',
-                'wrap': 'Wrap Meals',
+                'kids-meals': 'Kids Meals',
+                'side-dishes': 'Side Dishes',
+                'bites-wings': 'Bites & Wings',
+                'strips': 'Strips',
                 'salads': 'Salads',
-                'drinks': 'Drinks'
+                'drinks': 'Drinks',
+                'sauces': 'Sauces & Add-ons',
+                'hot-drinks': 'Hot Drinks',
+                'cold-drinks': 'Cold Drinks & Juices',
+                'crepes': 'Crepe',
+                'fruits': 'Fruits',
+                'nuts': 'Nuts',
+                'hookah': 'Hookah / Shisha'
             }
         };
 
-        function selectLanguage(lang, text) {
-            currentLang = lang;
-            const currentLangText = document.getElementById('current-lang-text');
-            if (currentLangText) currentLangText.innerText = text;
-
-            if (lang === 'en') {
-                document.documentElement.dir = 'ltr';
-                document.documentElement.lang = 'en';
-            } else {
-                document.documentElement.dir = 'rtl';
-                document.documentElement.lang = lang;
-            }
-
-            const dropdown = document.getElementById('lang-dropdown');
-            if (dropdown) dropdown.classList.add('hidden');
-
-            renderCategoryCards();
-            renderMenuGrid();
-            renderHallCategoryPills();
-            renderHallDishGrid();
-        }
-
-        let categories = [
+        // Initialize state variables with local storage fallback
+        let defaultCategories = [
             { id: 'all', name: 'الكل', icon: 'fa-layer-group' },
-            { id: 'burger-beef', name: 'برجر لحم', icon: 'fa-hamburger' },
-            { id: 'burger-chicken', name: 'برجر دجاج', icon: 'fa-drumstick-bite' },
-            { id: 'appetizers', name: 'مقبلات وبطاطس', icon: 'fa-bowl-rice' },
-            { id: 'bites-wings', name: 'بايتس وأجنحة', icon: 'fa-fire' },
+            { id: 'burger-beef', name: 'برغر اللحم', icon: 'fa-hamburger' },
+            { id: 'burger-chicken', name: 'برغر الدجاج', icon: 'fa-drumstick-bite' },
+            { id: 'wrap', name: 'الراب', icon: 'fa-scroll' },
             { id: 'hotdog', name: 'هوت دوغ', icon: 'fa-hotdog' },
-            { id: 'wrap', name: 'وجبات راب', icon: 'fa-scroll' },
-            { id: 'salads', name: 'سلطات', icon: 'fa-carrot' },
-            { id: 'drinks', name: 'مشروبات', icon: 'fa-wine-glass' }
+            { id: 'kids-meals', name: 'وجبات الأطفال', icon: 'fa-child' },
+            { id: 'side-dishes', name: 'الأطباق الجانبية', icon: 'fa-bowl-rice' },
+            { id: 'bites-wings', name: 'البايتس والأجنحة', icon: 'fa-fire' },
+            { id: 'strips', name: 'استربس', icon: 'fa-plate-wheat' },
+            { id: 'salads', name: 'السلطات', icon: 'fa-carrot' },
+            { id: 'drinks', name: 'المشروبات', icon: 'fa-wine-glass' },
+            { id: 'sauces', name: 'الصوصات والإضافات', icon: 'fa-bottle-droplet' },
+            { id: 'hot-drinks', name: 'المشروبات الساخنة', icon: 'fa-mug-hot' },
+            { id: 'cold-drinks', name: 'مشروبات وعصائر باردة', icon: 'fa-glass-water' },
+            { id: 'crepes', name: 'الكريب', icon: 'fa-cookie' },
+            { id: 'fruits', name: 'فواكه', icon: 'fa-apple-whole' },
+            { id: 'nuts', name: 'المكسرات', icon: 'fa-seedling' },
+            { id: 'hookah', name: 'اراكيل', icon: 'fa-smog' }
         ];
 
-        let offers = [
+        let defaultOffers = [
             {
                 id: 1,
                 title: "عرض الـ X-Double Combo",
@@ -1154,7 +1340,7 @@
             }
         ];
 
-        let menuItems = [
+        let defaultMenuItems = [
             {
                 id: 101,
                 name: "X Beef Classic Burger",
@@ -1221,18 +1407,95 @@
             }
         ];
 
+        // Load persisted local data if present
+        try {
+            const savedCats = JSON.parse(localStorage.getItem('xburger_categories'));
+            window.categories = (savedCats && savedCats.length > 0) ? savedCats : defaultCategories;
+            window.offers = JSON.parse(localStorage.getItem('xburger_offers')) || defaultOffers;
+            window.menuItems = JSON.parse(localStorage.getItem('xburger_menuItems')) || defaultMenuItems;
+        } catch (e) {
+            window.categories = defaultCategories;
+            window.offers = defaultOffers;
+            window.menuItems = defaultMenuItems;
+        }
+
+        let categories = window.categories;
+        // Merge any new default categories into the active categories list
+        defaultCategories.forEach(defCat => {
+            if (!categories.some(c => c.id === defCat.id)) {
+                categories.push(defCat);
+            }
+        });
+        window.categories = categories;
+        try { localStorage.setItem('xburger_categories', JSON.stringify(window.categories)); } catch(e){}
+
+        let offers = window.offers;
+        let menuItems = window.menuItems;
+
         let currentCategory = 'all';
         let currentHallCategory = 'all';
         let cart = [];
         let hallOrderCart = [];
-        let kitchenOrders = [];
-        let activeHallOrders = [];
-        let totalRevenue = 0;
-        let paidOrdersCount = 0;
+        window.kitchenOrders = window.kitchenOrders || [];
+        window.activeHallOrders = window.activeHallOrders || [];
+        window.totalRevenue = window.totalRevenue || 0;
+        window.paidOrdersCount = window.paidOrdersCount || 0;
+        let kitchenOrders = window.kitchenOrders;
+        let activeHallOrders = window.activeHallOrders;
+        let totalRevenue = window.totalRevenue;
+        let paidOrdersCount = window.paidOrdersCount;
+
         let lastBusinessDayKey = '';
         let completedOrdersCount = 0;
         let deleteItemTarget = null;
         let editingCategoryId = null;
+
+        function updateBusinessStatus() {
+            const now = new Date();
+            const hours = now.getHours();
+            const isOpen = (hours >= 10 || hours < 4);
+
+            const trans = statusTranslations[currentLang] || statusTranslations.ar;
+            const statusText = isOpen ? trans.open : trans.closed;
+
+            const bgClass = isOpen ? 'bg-emerald-950/80 text-emerald-400 border-emerald-800/80' : 'bg-red-950/80 text-red-400 border-red-800/80';
+            const dotClass = isOpen ? 'bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]' : 'bg-red-500';
+
+            const headerBadge = document.getElementById('header-status-badge');
+            const headerDot = document.getElementById('header-status-dot');
+            const headerText = document.getElementById('header-status-text');
+            if (headerBadge) headerBadge.className = `hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-black transition-all ${bgClass}`;
+            if (headerDot) headerDot.className = `w-2.5 h-2.5 rounded-full ${dotClass}`;
+            if (headerText) headerText.innerText = statusText;
+
+            const heroBadge = document.getElementById('hero-status-badge');
+            const heroDot = document.getElementById('hero-status-dot');
+            const heroText = document.getElementById('hero-status-text');
+            if (heroBadge) heroBadge.className = `inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl border text-xs sm:text-sm font-black transition-all shadow-sm ${bgClass}`;
+            if (heroDot) heroDot.className = `w-2.5 h-2.5 rounded-full ${dotClass}`;
+            if (heroText) heroText.innerText = statusText;
+
+            const locBadge = document.getElementById('loc-status-badge');
+            const locDot = document.getElementById('loc-status-dot');
+            const locText = document.getElementById('loc-status-text');
+            if (locBadge) locBadge.className = `inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-black ${bgClass}`;
+            if (locDot) locDot.className = `w-2 h-2 rounded-full ${dotClass}`;
+            if (locText) locText.innerText = statusText;
+        }
+
+        window.updateBusinessStatus = updateBusinessStatus;
+
+        function checkDailyRevenueReset() {
+            if (typeof window.getBusinessDayKey !== 'function') return;
+            const currentKey = window.getBusinessDayKey();
+            if (lastBusinessDayKey && lastBusinessDayKey !== currentKey) {
+                totalRevenue = 0;
+                paidOrdersCount = 0;
+                window.totalRevenue = 0;
+                window.paidOrdersCount = 0;
+            }
+            lastBusinessDayKey = currentKey;
+        }
 
         function formatPrice(amount) {
             return (amount || 0).toLocaleString('ar-IQ') + ' د.ع';
@@ -1246,15 +1509,82 @@
             toast.className = `p-4 rounded-2xl border shadow-2xl flex items-center gap-3 transition-all transform translate-y-2 opacity-0 text-xs font-bold ${bgClass}`;
             toast.innerHTML = `<i class="fa-solid ${type === 'error' ? 'fa-circle-xmark text-red-400' : 'fa-circle-check text-emerald-400'} text-lg"></i> <span>${msg}</span>`;
             container.appendChild(toast);
-            setTimeout(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            }, 10);
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
             setTimeout(() => {
                 toast.classList.add('opacity-0');
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
 
+        function toggleLanguageDropdown(event) {
+            if (event) event.stopPropagation();
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown) dropdown.classList.toggle('hidden');
+        }
+
+        function selectLanguage(lang, text) {
+            currentLang = lang;
+            const currentLangText = document.getElementById('current-lang-text');
+            if (currentLangText) currentLangText.innerText = text;
+
+            if (lang === 'en') {
+                document.documentElement.dir = 'ltr';
+                document.documentElement.lang = 'en';
+            } else {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = lang;
+            }
+
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+
+            const dict = i18nPageTranslations[lang] || i18nPageTranslations.ar;
+
+            const safeSetText = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
+            const safeSetHTML = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
+
+            safeSetText('txt-nav-home', dict.navHome);
+            safeSetText('txt-nav-menu', dict.navMenu);
+            safeSetText('txt-nav-hall-order', dict.navHallOrder);
+            safeSetText('txt-nav-orders-status', dict.navOrdersStatus);
+            safeSetText('txt-nav-kitchen', dict.navKitchen);
+            safeSetText('txt-nav-location', dict.navLocation);
+            safeSetText('txt-nav-admin', dict.navAdmin);
+
+            safeSetText('home-hero-badge', dict.homeHeroBadge);
+            safeSetHTML('home-hero-title', dict.homeHeroTitle);
+            safeSetHTML('home-hero-desc', dict.homeHeroDesc);
+            safeSetHTML('home-hero-hours', dict.homeHeroHours);
+            safeSetText('home-hero-cta', dict.homeHeroCta);
+            safeSetText('home-offers-badge', dict.homeOffersBadge);
+            safeSetText('home-offers-title', dict.homeOffersTitle);
+
+            safeSetText('menu-header-title', dict.menuHeaderTitle);
+
+            safeSetText('loc-section-badge', dict.locSectionBadge);
+            safeSetText('loc-section-title', dict.locSectionTitle);
+            safeSetText('loc-section-subtitle', dict.locSectionSubtitle);
+            safeSetText('loc-card-title', dict.locCardTitle);
+            safeSetText('loc-addr-label', dict.locAddrLabel);
+            safeSetText('loc-addr-val', dict.locAddrVal);
+            safeSetText('loc-hours-label', dict.locHoursLabel);
+            safeSetText('loc-hours-val', dict.locHoursVal);
+            safeSetText('loc-phone-label', dict.locPhoneLabel);
+            safeSetText('loc-tiktok-label', dict.locTiktokLabel);
+            safeSetText('loc-insta-label', dict.locInstaLabel);
+            safeSetText('loc-map-btn', dict.locMapBtn);
+
+            safeSetText('footer-rights', dict.footerRights);
+
+            updateBusinessStatus();
+            renderCategoryCards();
+            renderMenuGrid();
+            renderHomeOffers();
+            renderHallCategoryPills();
+            renderHallDishGrid();
+        }
+
+        // Category Management Functions
         function openAddCategoryModal() {
             const modal = document.getElementById('category-modal');
             const input = document.getElementById('category-name-input');
@@ -1274,7 +1604,12 @@
             if (!name) return;
 
             const id = 'cat-' + Date.now();
-            categories.push({ id, name, icon: 'fa-utensils' });
+            const newCat = { id, name, icon: 'fa-utensils' };
+            categories.push(newCat);
+            window.categories = categories;
+            localStorage.setItem('xburger_categories', JSON.stringify(categories));
+            
+            if (window.cloudSaveCategory) window.cloudSaveCategory(newCat);
 
             updateCategoryDropdown();
             renderCategoryCards();
@@ -1352,6 +1687,9 @@
             const cat = categories.find(c => c.id === editingCategoryId);
             if (cat) {
                 cat.name = newName;
+                window.categories = categories;
+                localStorage.setItem('xburger_categories', JSON.stringify(categories));
+                if (window.cloudSaveCategory) window.cloudSaveCategory(cat);
                 showToast('تم تعديل اسم الصنف بنجاح!');
             }
             closeEditCategoryModal();
@@ -1368,6 +1706,633 @@
             select.innerHTML = categories.filter(c => c.id !== 'all').map(c => `
                 <option value="${c.id}">${c.name}</option>
             `).join('');
+        }
+
+        // Offer Management Functions
+        function openOfferModal(offerId = null) {
+            const modal = document.getElementById('offer-modal');
+            const title = document.getElementById('offer-modal-title');
+            const form = document.getElementById('offer-form');
+
+            if (!modal || !form) return;
+
+            form.reset();
+            document.getElementById('offer-id').value = '';
+            document.getElementById('offer-image-url').value = '';
+            document.getElementById('offer-image-preview').src = 'https://placehold.co/150x150/222222/F8F5F2?text=Offer';
+            document.getElementById('offer-file-name-display').innerText = 'لم يتم اختيار صورة بعد';
+
+            if (offerId) {
+                const offer = offers.find(o => o.id == offerId);
+                if (offer) {
+                    title.innerText = 'تعديل العرض';
+                    document.getElementById('offer-id').value = offer.id;
+                    document.getElementById('offer-title').value = offer.title;
+                    document.getElementById('offer-badge').value = offer.badge || '';
+                    document.getElementById('offer-tag').value = offer.tag || '';
+                    document.getElementById('offer-price').value = offer.price;
+                    document.getElementById('offer-oldprice').value = offer.oldPrice || '';
+                    document.getElementById('offer-desc').value = offer.desc;
+                    document.getElementById('offer-image-url').value = offer.image;
+                    document.getElementById('offer-image-preview').src = offer.image;
+                    document.getElementById('offer-file-name-display').innerText = 'صورة العرض الحالية';
+                }
+            } else {
+                title.innerText = 'إضافة عرض جديد';
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeOfferModal() {
+            const modal = document.getElementById('offer-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function compressAndSetImage(file, targetInputId, previewImgId, displayFileNameId) {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 600;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > MAX_WIDTH) {
+                        height = Math.round((height * MAX_WIDTH) / width);
+                        width = MAX_WIDTH;
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.75);
+                    const targetInput = document.getElementById(targetInputId);
+                    const previewImg = document.getElementById(previewImgId);
+                    const displayFileName = document.getElementById(displayFileNameId);
+
+                    if (targetInput) targetInput.value = compressedDataUrl;
+                    if (previewImg) previewImg.src = compressedDataUrl;
+                    if (displayFileName) displayFileName.innerText = file.name;
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleOfferFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                compressAndSetImage(file, 'offer-image-url', 'offer-image-preview', 'offer-file-name-display');
+            }
+        }
+
+        function handleOfferSubmit(event) {
+            event.preventDefault();
+            try {
+                const offerId = document.getElementById('offer-id').value;
+                const title = document.getElementById('offer-title').value.trim();
+                const badge = document.getElementById('offer-badge').value.trim();
+                const tag = document.getElementById('offer-tag').value.trim();
+                const price = parseFloat(document.getElementById('offer-price').value);
+                const oldPrice = parseFloat(document.getElementById('offer-oldprice').value) || null;
+                const desc = document.getElementById('offer-desc').value.trim();
+                let image = document.getElementById('offer-image-url').value;
+
+                if (!image) {
+                    image = "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f6?auto=format&fit=crop&w=600&q=80";
+                }
+
+                let offerObj;
+                if (offerId) {
+                    const idx = offers.findIndex(o => o.id == offerId);
+                    offerObj = { id: parseInt(offerId), title, badge, tag, price, oldPrice, desc, image };
+                    if (idx !== -1) {
+                        offers[idx] = offerObj;
+                    }
+                } else {
+                    offerObj = { id: Date.now(), title, badge, tag, price, oldPrice, desc, image };
+                    offers.push(offerObj);
+                }
+
+                window.offers = offers;
+                try {
+                    localStorage.setItem('xburger_offers', JSON.stringify(offers));
+                } catch (e) {
+                    console.warn("LocalStorage quota full, saved in memory:", e);
+                }
+
+                if (window.cloudSaveOffer) window.cloudSaveOffer(offerObj);
+
+                renderHomeOffers();
+                renderAdminOffersTable();
+                closeOfferModal();
+                showToast('تم حفظ العرض بنجاح! 🎉');
+            } catch (err) {
+                console.error("Error saving offer:", err);
+                showToast('حدث خطأ أثناء حفظ العرض', 'error');
+            }
+        }
+
+        // Dish Management Functions
+        function openAddDishModal(dishId = null) {
+            const modal = document.getElementById('dish-modal');
+            const title = document.getElementById('modal-title');
+            const form = document.getElementById('dish-form');
+            if (!modal || !form) return;
+
+            form.reset();
+            document.getElementById('dish-id').value = '';
+            document.getElementById('dish-image-url').value = '';
+            document.getElementById('image-preview').src = 'https://placehold.co/150x150/222222/F8F5F2?text=Preview';
+            document.getElementById('file-name-display').innerText = 'لم يتم اختيار ملف بعد';
+
+            updateCategoryDropdown();
+
+            if (dishId) {
+                const dish = menuItems.find(m => m.id == dishId);
+                if (dish) {
+                    title.innerText = 'تعديل الطبق';
+                    document.getElementById('dish-id').value = dish.id;
+                    document.getElementById('dish-name').value = dish.name;
+                    document.getElementById('dish-price').value = dish.price;
+                    document.getElementById('dish-category').value = dish.category;
+                    document.getElementById('dish-desc').value = dish.desc || '';
+                    document.getElementById('dish-image-url').value = dish.image;
+                    document.getElementById('image-preview').src = dish.image;
+                    document.getElementById('file-name-display').innerText = 'صورة الطبق الحالية';
+                }
+            } else {
+                title.innerText = 'إضافة طبق جديد';
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeDishModal() {
+            const modal = document.getElementById('dish-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                compressAndSetImage(file, 'dish-image-url', 'image-preview', 'file-name-display');
+            }
+        }
+
+        function handleDishSubmit(event) {
+            event.preventDefault();
+            try {
+                const dishId = document.getElementById('dish-id').value;
+                const name = document.getElementById('dish-name').value.trim();
+                const price = parseFloat(document.getElementById('dish-price').value);
+                const category = document.getElementById('dish-category').value;
+                const desc = document.getElementById('dish-desc').value.trim();
+                let image = document.getElementById('dish-image-url').value;
+
+                if (!name || isNaN(price)) {
+                    showToast('يرجى التأكد من تعبئة كافة الحقول المطلوبة', 'error');
+                    return;
+                }
+
+                if (!image) {
+                    image = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80";
+                }
+
+                let dishObj;
+                if (dishId) {
+                    const idx = menuItems.findIndex(m => m.id == dishId);
+                    dishObj = { id: parseInt(dishId), name, price, category, desc, image };
+                    if (idx !== -1) {
+                        menuItems[idx] = dishObj;
+                    }
+                } else {
+                    dishObj = { id: Date.now(), name, price, category, desc, image };
+                    menuItems.push(dishObj);
+                }
+
+                window.menuItems = menuItems;
+                
+                try {
+                    localStorage.setItem('xburger_menuItems', JSON.stringify(menuItems));
+                } catch (e) {
+                    console.warn("LocalStorage full, saved in memory:", e);
+                }
+
+                if (window.cloudSaveDish) window.cloudSaveDish(dishObj);
+
+                renderMenuGrid();
+                renderHallDishGrid();
+                updateAdminTable();
+                closeDishModal();
+                showToast('تم حفظ الطبق بنجاح! 🎉');
+            } catch (err) {
+                console.error("Error saving dish:", err);
+                showToast('حدث خطأ أثناء حفظ الطبق', 'error');
+            }
+        }
+
+        // Delete Confirmation and Execution
+        function confirmDeleteItem(type, id, name) {
+            deleteItemTarget = { type, id };
+            const modal = document.getElementById('confirm-modal');
+            const titleElem = document.getElementById('confirm-title');
+            const msgElem = document.getElementById('confirm-message');
+            const actionBtn = document.getElementById('confirm-action-btn');
+            const modalIcon = document.getElementById('confirm-modal-icon');
+
+            if (titleElem) titleElem.innerText = 'تأكيد الحذف النهائي';
+            if (msgElem) msgElem.innerText = `هل أنت تأكد من رغبتك في حذف "${name}"؟ لا يمكن التراجع عن هذا الإجراء.`;
+
+            if (modalIcon) {
+                modalIcon.className = "w-16 h-16 bg-red-900/40 text-red-400 border border-red-700 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4";
+                modalIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
+            }
+
+            if (actionBtn) {
+                actionBtn.className = "flex-1 bg-red-700 hover:bg-red-800 text-white font-black py-3 rounded-xl shadow-md transition-all";
+                actionBtn.innerText = "تأكيد الحذف";
+                actionBtn.onclick = function() { executeDeleteItem(); };
+            }
+
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeConfirmModal() {
+            const modal = document.getElementById('confirm-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function executeDeleteItem() {
+            if (!deleteItemTarget) return;
+
+            if (deleteItemTarget.type === 'dish') {
+                menuItems = menuItems.filter(m => m.id != deleteItemTarget.id);
+                window.menuItems = menuItems;
+                localStorage.setItem('xburger_menuItems', JSON.stringify(menuItems));
+                if (window.cloudDeleteDish) window.cloudDeleteDish(deleteItemTarget.id);
+                renderMenuGrid();
+                renderHallDishGrid();
+                updateAdminTable();
+                showToast('تم حذف الطبق بنجاح!');
+            } else if (deleteItemTarget.type === 'offer') {
+                offers = offers.filter(o => o.id != deleteItemTarget.id);
+                window.offers = offers;
+                localStorage.setItem('xburger_offers', JSON.stringify(offers));
+                if (window.cloudDeleteOffer) window.cloudDeleteOffer(deleteItemTarget.id);
+                renderHomeOffers();
+                renderAdminOffersTable();
+                showToast('تم حذف العرض بنجاح!');
+            } else if (deleteItemTarget.type === 'category') {
+                categories = categories.filter(c => c.id != deleteItemTarget.id);
+                window.categories = categories;
+                localStorage.setItem('xburger_categories', JSON.stringify(categories));
+                if (window.cloudDeleteCategory) window.cloudDeleteCategory(deleteItemTarget.id);
+                renderManageCategoriesList();
+                updateCategoryDropdown();
+                renderCategoryCards();
+                renderHallCategoryPills();
+                updateAdminTable();
+                showToast('تم حذف الصنف بنجاح!');
+            }
+
+            closeConfirmModal();
+        }
+
+        function renderAdminOffersTable() {
+            const tbody = document.getElementById('admin-offers-tbody');
+            if (!tbody) return;
+
+            if (offers.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center py-6 text-ivory/60 font-bold">لا توجد عروض حالياً.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = offers.map(o => `
+                <tr class="hover:bg-charcoal-700/50 transition-colors">
+                    <td class="p-4">
+                        <img src="${o.image}" class="w-12 h-12 rounded-xl object-cover border border-charcoal-100"
+                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/222222/F8F5F2?text=Offer';">
+                    </td>
+                    <td class="p-4 font-black">${o.title}</td>
+                    <td class="p-4"><span class="bg-amber-500 text-charcoal px-2.5 py-0.5 rounded-full text-xs font-bold">${o.badge || '-'}</span></td>
+                    <td class="p-4"><span class="text-xs font-bold text-ivory/80">${o.tag || '-'}</span></td>
+                    <td class="p-4 text-xs font-semibold text-ivory/70 max-w-xs truncate">${o.desc}</td>
+                    <td class="p-4 font-black text-emerald-400">${formatPrice(o.price)}</td>
+                    <td class="p-4 text-center">
+                        <div class="flex items-center justify-center gap-2">
+                            <button onclick="openOfferModal(${o.id})" class="p-2 bg-charcoal-700 hover:bg-charcoal-600 rounded-xl text-ivory text-xs border border-charcoal-100">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button onclick="confirmDeleteItem('offer', ${o.id}, '${o.title}')" class="p-2 bg-red-900/60 hover:bg-red-800 rounded-xl text-red-300 text-xs border border-red-700/60">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateAdminTable() {
+            const tbody = document.getElementById('admin-dish-tbody');
+            if (!tbody) return;
+
+            if (menuItems.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-center py-6 text-ivory/60 font-bold">لا توجد أطباق مسجلة.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = menuItems.map(dish => {
+                const cat = categories.find(c => c.id === dish.category);
+                const catName = cat ? cat.name : dish.category;
+
+                return `
+                    <tr class="hover:bg-charcoal-700/50 transition-colors">
+                        <td class="p-4">
+                            <img src="${dish.image}" class="w-12 h-12 rounded-xl object-cover border border-charcoal-100"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/222222/F8F5F2?text=Burger';">
+                        </td>
+                        <td class="p-4 font-black">${dish.name}</td>
+                        <td class="p-4"><span class="bg-charcoal-700 px-3 py-1 rounded-xl text-xs font-bold border border-charcoal-100">${catName}</span></td>
+                        <td class="p-4 font-black text-emerald-400">${formatPrice(dish.price)}</td>
+                        <td class="p-4 text-xs font-semibold text-ivory/70 max-w-xs truncate">${dish.desc || ''}</td>
+                        <td class="p-4 text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                <button onclick="openAddDishModal(${dish.id})" class="p-2 bg-charcoal-700 hover:bg-charcoal-600 rounded-xl text-ivory text-xs border border-charcoal-100">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <button onclick="confirmDeleteItem('dish', ${dish.id}, '${dish.name}')" class="p-2 bg-red-900/60 hover:bg-red-800 rounded-xl text-red-300 text-xs border border-red-700/60">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function filterHallCategory(catId) {
+            currentHallCategory = catId;
+            renderHallCategoryPills();
+            renderHallDishGrid(document.getElementById('hall-search-input')?.value || '');
+        }
+
+        function filterHallDishes() {
+            const query = (document.getElementById('hall-search-input')?.value || '').toLowerCase();
+            renderHallDishGrid(query);
+        }
+
+        function renderHallCategoryPills() {
+            const container = document.getElementById('hall-category-pills');
+            if (!container) return;
+            const trans = categoryTranslations[currentLang] || categoryTranslations.ar;
+            container.innerHTML = categories.map(cat => {
+                const isActive = currentHallCategory === cat.id;
+                const displayName = trans[cat.id] || cat.name;
+                return `
+                    <button onclick="filterHallCategory('${cat.id}')" type="button"
+                            class="px-3.5 py-1.5 rounded-xl border whitespace-nowrap transition-all ${isActive ? 'bg-ivory text-charcoal border-ivory font-black shadow-sm' : 'bg-charcoal-800 text-ivory border-charcoal-100 hover:bg-charcoal-700'}">
+                        <i class="fa-solid ${cat.icon || 'fa-utensils'} ml-1"></i> ${displayName}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderHallDishGrid(searchQuery = '') {
+            const grid = document.getElementById('hall-dish-grid');
+            if (!grid) return;
+
+            let items = currentHallCategory === 'all' ? menuItems : menuItems.filter(m => m.category === currentHallCategory);
+            
+            if (searchQuery) {
+                items = items.filter(m => m.name.toLowerCase().includes(searchQuery.toLowerCase()));
+            }
+
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-8 text-ivory/60 font-bold text-xs">لا توجد أطباق مطابقة للبحث.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map(dish => {
+                const cartItem = hallOrderCart.find(i => i.id === dish.id);
+                const qty = cartItem ? cartItem.quantity : 0;
+
+                return `
+                    <div class="card-custom p-3 rounded-2xl bg-charcoal-800 border border-charcoal-100 flex items-center justify-between gap-3 shadow-md hover:border-ivory/50 transition-all">
+                        <div class="flex items-center gap-3 overflow-hidden">
+                            <img src="${dish.image}" class="w-12 h-12 rounded-xl object-cover shrink-0 border border-charcoal-100"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/222222/F8F5F2?text=Burger';">
+                            <div class="overflow-hidden">
+                                <h4 class="font-bold text-xs text-ivory truncate">${dish.name}</h4>
+                                <span class="text-xs text-emerald-400 font-extrabold block">${formatPrice(dish.price)}</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            ${qty > 0 ? `
+                                <button type="button" onclick="updateHallQty(${dish.id}, -1)" class="w-7 h-7 rounded-lg bg-charcoal-700 hover:bg-charcoal-600 text-ivory flex items-center justify-center text-xs font-bold border border-charcoal-100">-</button>
+                                <span class="w-5 text-center font-black text-xs text-ivory">${qty}</span>
+                                <button type="button" onclick="updateHallQty(${dish.id}, 1)" class="w-7 h-7 rounded-lg bg-ivory text-charcoal flex items-center justify-center text-xs font-bold shadow-sm">+</button>
+                            ` : `
+                                <button type="button" onclick="updateHallQty(${dish.id}, 1)" class="px-3 py-1.5 rounded-xl bg-charcoal-700 hover:bg-ivory hover:text-charcoal text-ivory border border-charcoal-100 font-bold text-xs transition-all flex items-center gap-1">
+                                    <i class="fa-solid fa-plus text-[10px]"></i> إضافة
+                                </button>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateHallQty(dishId, delta) {
+            const dish = menuItems.find(m => m.id == dishId);
+            if (!dish) return;
+
+            let cartItem = hallOrderCart.find(i => i.id == dishId);
+            if (cartItem) {
+                cartItem.quantity += delta;
+                if (cartItem.quantity <= 0) {
+                    hallOrderCart = hallOrderCart.filter(i => i.id != dishId);
+                }
+            } else if (delta > 0) {
+                hallOrderCart.push({
+                    id: dish.id,
+                    name: dish.name,
+                    price: dish.price,
+                    quantity: 1
+                });
+            }
+
+            renderHallDishGrid(document.getElementById('hall-search-input')?.value || '');
+            renderHallOrderSummary();
+        }
+
+        function renderHallOrderSummary() {
+            const container = document.getElementById('hall-summary-items');
+            if (!container) return;
+
+            if (hallOrderCart.length === 0) {
+                container.innerHTML = `<div class="p-4 bg-charcoal-800 rounded-2xl border border-charcoal-100 text-center text-xs text-ivory/60 font-bold">لم يتم اختيار أي صنف بعد. اختر الوجبات من القائمة المجاورة.</div>`;
+                return;
+            }
+
+            const total = hallOrderCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            container.innerHTML = `
+                <div class="space-y-2">
+                    ${hallOrderCart.map(item => `
+                        <div class="flex items-center justify-between p-2.5 bg-charcoal-800 rounded-xl border border-charcoal-100 text-xs font-bold">
+                            <div class="flex items-center gap-2 overflow-hidden">
+                                <button type="button" onclick="updateHallQty(${item.id}, -${item.quantity})" class="text-red-400 hover:text-red-300 p-1"><i class="fa-solid fa-xmark"></i></button>
+                                <span class="text-ivory truncate">${item.name}</span>
+                            </div>
+                            <div class="flex items-center gap-3 shrink-0">
+                                <div class="flex items-center gap-1 bg-charcoal-700 px-2 py-0.5 rounded-lg border border-charcoal-100">
+                                    <button type="button" onclick="updateHallQty(${item.id}, -1)" class="text-ivory font-black">-</button>
+                                    <span class="px-1 text-ivory">${item.quantity}</span>
+                                    <button type="button" onclick="updateHallQty(${item.id}, 1)" class="text-ivory font-black">+</button>
+                                </div>
+                                <span class="text-emerald-400 font-extrabold min-w-[60px] text-left">${formatPrice(item.price * item.quantity)}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="pt-3 border-t border-charcoal-100 flex items-center justify-between text-sm font-black text-ivory">
+                    <span>المجموع:</span>
+                    <span class="text-emerald-400">${formatPrice(total)}</span>
+                </div>
+            `;
+        }
+
+        function addToCart(dishId) {
+            const dish = menuItems.find(m => m.id == dishId);
+            if (!dish) return;
+
+            const existing = cart.find(i => i.id == dishId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ id: dish.id, name: dish.name, price: dish.price, quantity: 1, image: dish.image });
+            }
+            updateCartUI();
+            showToast(`تمت إضافة "${dish.name}" إلى السلة 🛒`);
+        }
+
+        function addOfferToCart(offerId) {
+            const offer = offers.find(o => o.id == offerId);
+            if (!offer) return;
+
+            const existing = cart.find(i => i.id == ('offer-' + offerId));
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ id: 'offer-' + offerId, name: offer.title, price: offer.price, quantity: 1, image: offer.image });
+            }
+            updateCartUI();
+            showToast(`تمت إضافة "${offer.title}" إلى السلة 🛒`);
+        }
+
+        function updateCartQty(id, delta) {
+            const item = cart.find(i => i.id == id);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id != id);
+                }
+            }
+            updateCartUI();
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            if (modal) modal.classList.toggle('hidden');
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const totalElem = document.getElementById('cart-total');
+
+            const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            if (badge) badge.innerText = totalQty;
+            if (totalElem) totalElem.innerText = formatPrice(totalPrice);
+
+            if (!container) return;
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-12 text-ivory/60 font-bold text-xs">سلة الشراء فارغة حالياً.</div>`;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between p-3 bg-charcoal-800 rounded-2xl border border-charcoal-100 shadow-sm">
+                    <div class="flex items-center gap-3 overflow-hidden">
+                        <img src="${item.image || 'https://placehold.co/100x100/222222/F8F5F2?text=Item'}" class="w-12 h-12 rounded-xl object-cover shrink-0 border border-charcoal-100">
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-xs text-ivory truncate">${item.name}</h4>
+                            <span class="text-xs text-emerald-400 font-extrabold block">${formatPrice(item.price)}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button onclick="updateCartQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-charcoal-700 hover:bg-charcoal-600 text-ivory font-bold text-xs border border-charcoal-100">-</button>
+                        <span class="font-black text-xs text-ivory px-1">${item.quantity}</span>
+                        <button onclick="updateCartQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-ivory text-charcoal font-bold text-xs shadow-sm">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function placeOrder() {
+            if (cart.length === 0) {
+                showToast('السلة فارغة! يرجى إضافة أطعمة أولاً', 'error');
+                return;
+            }
+
+            let message = "مرحباً X BURGER 🍔، أود طلب الوجبات التالية:\n\n";
+            cart.forEach((item, idx) => {
+                message += `${idx + 1}. ${item.name} (العدد: ${item.quantity}) - ${formatPrice(item.price * item.quantity)}\n`;
+            });
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            message += `\nإجمالي الطلب: ${formatPrice(total)}`;
+
+            const encodedMsg = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/9647701070005?text=${encodedMsg}`;
+
+            window.open(whatsappUrl, '_blank');
+            cart = [];
+            updateCartUI();
+            toggleCartModal();
+            showToast('جاري توجيهك إلى واتساب لإرسال الطلب! 🚀');
+        }
+
+        function filterCategory(catId) {
+            currentCategory = catId;
+            renderCategoryCards();
+            
+            const grid = document.getElementById('menu-grid');
+            if (grid) {
+                grid.style.opacity = '0';
+                grid.style.transform = 'translateY(8px)';
+                setTimeout(() => {
+                    renderMenuGrid();
+                    grid.style.opacity = '1';
+                    grid.style.transform = 'translateY(0)';
+
+                    const yOffset = -90;
+                    const y = grid.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }, 120);
+            } else {
+                renderMenuGrid();
+            }
         }
 
         function renderHomeOffers() {
@@ -1409,16 +2374,14 @@
             const trans = categoryTranslations[currentLang] || categoryTranslations.ar;
 
             container.innerHTML = categories.map(cat => {
-                const count = cat.id === 'all' ? menuItems.length : menuItems.filter(m => m.category === cat.id).length;
                 const isActive = currentCategory === cat.id;
                 const displayName = trans[cat.id] || cat.name;
 
                 return `
                     <button onclick="filterCategory('${cat.id}')" 
-                            class="p-4 rounded-2xl border transition-all text-right flex flex-col justify-between h-28 ${isActive ? 'bg-ivory text-charcoal border-ivory shadow-lg scale-105 font-black' : 'bg-charcoal-800 text-ivory border-charcoal-100 hover:bg-charcoal-700'}">
+                            class="p-4 rounded-2xl border transition-all duration-300 text-right flex flex-col justify-between h-24 ${isActive ? 'bg-ivory text-charcoal border-ivory shadow-lg scale-105 font-black' : 'bg-charcoal-800 text-ivory border-charcoal-100 hover:bg-charcoal-700 hover:border-ivory/50'}">
                         <div class="flex items-center justify-between">
-                            <i class="fa-solid ${cat.icon || 'fa-utensils'} text-lg"></i>
-                            <span class="text-xs px-2 py-0.5 rounded-full ${isActive ? 'bg-charcoal text-ivory' : 'bg-charcoal-700 text-ivory/80'} font-bold">${count}</span>
+                            <i class="fa-solid ${cat.icon || 'fa-utensils'} text-xl"></i>
                         </div>
                         <span class="text-xs font-black truncate">${displayName}</span>
                     </button>
@@ -1459,321 +2422,6 @@
                     </div>
                 </div>
             `).join('');
-        }
-
-        function renderHallCategoryPills() {
-            const container = document.getElementById('hall-category-pills');
-            if (!container) return;
-
-            container.innerHTML = categories.map(cat => {
-                const isActive = currentHallCategory === cat.id;
-                return `
-                    <button onclick="filterHallCategory('${cat.id}')" 
-                            class="px-4 py-2 rounded-xl text-xs font-black shrink-0 transition-all ${isActive ? 'ivory-btn shadow-md' : 'bg-charcoal-800 text-ivory hover:bg-charcoal-700 border border-charcoal-100'}">
-                        ${cat.name}
-                    </button>
-                `;
-            }).join('');
-        }
-
-        function filterHallCategory(catId) {
-            currentHallCategory = catId;
-            renderHallCategoryPills();
-            renderHallDishGrid();
-        }
-
-        function filterCategory(catId) {
-            currentCategory = catId;
-            renderCategoryCards();
-            renderMenuGrid();
-        }
-
-        function filterHallDishes() {
-            renderHallDishGrid();
-        }
-
-        function renderHallDishGrid() {
-            const grid = document.getElementById('hall-dish-grid');
-            if (!grid) return;
-
-            const query = (document.getElementById('hall-search-input')?.value || '').toLowerCase().trim();
-            let filtered = menuItems;
-
-            if (currentHallCategory !== 'all') {
-                filtered = filtered.filter(m => m.category === currentHallCategory);
-            }
-
-            if (query) {
-                filtered = filtered.filter(m => m.name.toLowerCase().includes(query) || (m.desc && m.desc.toLowerCase().includes(query)));
-            }
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-8 text-ivory/60 font-bold text-xs">لا توجد وجبات تطابق البحث.</div>`;
-                return;
-            }
-
-            grid.innerHTML = filtered.map(item => {
-                const cartItem = hallOrderCart.find(i => i.id === item.id);
-                const qty = cartItem ? cartItem.quantity : 0;
-
-                return `
-                    <div class="p-3 bg-charcoal-800 rounded-2xl border border-charcoal-100 flex items-center justify-between gap-3 shadow-sm hover:border-ivory transition-colors">
-                        <div class="flex items-center gap-3 overflow-hidden">
-                            <img src="${item.image}" class="w-12 h-12 rounded-xl object-cover border border-charcoal-100 shrink-0"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/222222/F8F5F2?text=Dish';">
-                            <div class="overflow-hidden">
-                                <h4 class="text-xs font-black text-ivory truncate">${item.name}</h4>
-                                <span class="text-xs font-bold text-emerald-400 block">${formatPrice(item.price)}</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-2 shrink-0">
-                            ${qty > 0 ? `
-                                <button onclick="updateHallQty(${item.id}, -1)" class="w-8 h-8 rounded-xl bg-charcoal-700 text-ivory font-black flex items-center justify-center hover:bg-red-800 border border-charcoal-100">-</button>
-                                <span class="text-xs font-black text-ivory px-1">${qty}</span>
-                                <button onclick="updateHallQty(${item.id}, 1)" class="w-8 h-8 rounded-xl ivory-btn font-black flex items-center justify-center">+</button>
-                            ` : `
-                                <button onclick="updateHallQty(${item.id}, 1)" class="px-3 py-1.5 rounded-xl bg-charcoal-700 hover:bg-ivory hover:text-charcoal text-ivory font-extrabold text-xs border border-charcoal-100 transition-colors">
-                                    إضافة +
-                                </button>
-                            `}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function updateHallQty(dishId, change) {
-            const dish = menuItems.find(m => m.id === dishId);
-            if (!dish) return;
-
-            const existing = hallOrderCart.find(i => i.id === dishId);
-            if (existing) {
-                existing.quantity += change;
-                if (existing.quantity <= 0) {
-                    hallOrderCart = hallOrderCart.filter(i => i.id !== dishId);
-                }
-            } else if (change > 0) {
-                hallOrderCart.push({ id: dish.id, name: dish.name, price: dish.price, quantity: 1 });
-            }
-
-            renderHallDishGrid();
-            renderHallOrderSummary();
-        }
-
-        function renderHallOrderSummary() {
-            const container = document.getElementById('hall-summary-items');
-            if (!container) return;
-
-            if (hallOrderCart.length === 0) {
-                container.innerHTML = `<p class="text-xs text-ivory/50 font-bold py-3 text-center border border-dashed border-charcoal-100 rounded-xl">لم يتم تحديد أي أصناف بعد</p>`;
-                return;
-            }
-
-            container.innerHTML = hallOrderCart.map(item => `
-                <div class="flex items-center justify-between p-2.5 bg-charcoal-800 rounded-xl border border-charcoal-100 text-xs font-bold">
-                    <div>
-                        <span class="text-ivory block font-black">${item.name}</span>
-                        <span class="text-ivory/60 text-[11px]">${formatPrice(item.price)} × ${item.quantity}</span>
-                    </div>
-                    <span class="text-emerald-400 font-black">${formatPrice(item.price * item.quantity)}</span>
-                </div>
-            `).join('');
-        }
-
-        function addToCart(dishId) {
-            const dish = menuItems.find(m => m.id === dishId);
-            if (!dish) return;
-
-            const existing = cart.find(c => c.id === dishId);
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({ id: dish.id, name: dish.name, price: dish.price, quantity: 1, image: dish.image });
-            }
-
-            updateCartUI();
-            showToast(`تمت إضافة "${dish.name}" إلى السلة 🛒`);
-        }
-
-        function addOfferToCart(offerId) {
-            const offer = offers.find(o => o.id === offerId);
-            if (!offer) return;
-
-            const cartKey = 'offer-' + offer.id;
-            const existing = cart.find(c => c.id === cartKey);
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({ id: cartKey, name: offer.title, price: offer.price, quantity: 1, image: offer.image });
-            }
-
-            updateCartUI();
-            showToast(`تمت إضافة العرض "${offer.title}" إلى السلة 🛒`);
-        }
-
-        function updateCartQty(id, change) {
-            const item = cart.find(c => c.id === id);
-            if (!item) return;
-
-            item.quantity += change;
-            if (item.quantity <= 0) {
-                cart = cart.filter(c => c.id !== id);
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const badge = document.getElementById('cart-badge');
-            const container = document.getElementById('cart-items-container');
-            const totalElem = document.getElementById('cart-total');
-
-            const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-            if (badge) badge.innerText = totalQty;
-            if (totalElem) totalElem.innerText = formatPrice(totalPrice);
-
-            if (!container) return;
-
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-12 text-ivory/60 font-bold">
-                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 block opacity-40"></i>
-                        <span>السلة فارغة حالياً</span>
-                    </div>
-                `;
-                return;
-            }
-
-            container.innerHTML = cart.map(item => `
-                <div class="p-3 bg-charcoal-800 rounded-2xl border border-charcoal-100 flex items-center justify-between gap-3 shadow-sm">
-                    <div class="flex items-center gap-3 overflow-hidden">
-                        <img src="${item.image}" class="w-12 h-12 rounded-xl object-cover border border-charcoal-100 shrink-0"
-                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/222222/F8F5F2?text=Item';">
-                        <div class="overflow-hidden">
-                            <h4 class="text-xs font-black text-ivory truncate">${item.name}</h4>
-                            <span class="text-xs font-bold text-emerald-400 block">${formatPrice(item.price)}</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-2 shrink-0">
-                        <button onclick="updateCartQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-charcoal-700 text-ivory font-black hover:bg-red-800 flex items-center justify-center">-</button>
-                        <span class="text-xs font-black text-ivory px-1">${item.quantity}</span>
-                        <button onclick="updateCartQty('${item.id}', 1)" class="w-7 h-7 rounded-lg ivory-btn font-black flex items-center justify-center">+</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function toggleCartModal() {
-            const modal = document.getElementById('cart-modal');
-            if (modal) modal.classList.toggle('hidden');
-        }
-
-        function placeOrder() {
-            if (cart.length === 0) {
-                showToast('السلة فارغة! يرجى إضافة أطباق أولاً', 'error');
-                return;
-            }
-
-            let text = "✨ *طلب جديد من موقع X BURGER* ✨\n\n";
-            cart.forEach(item => {
-                text += `• ${item.name} × ${item.quantity} = ${formatPrice(item.price * item.quantity)}\n`;
-            });
-
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            text += `\n💰 *الإجمالي الكلي:* ${formatPrice(totalPrice)}\n`;
-            text += `📍 أربيل، العراق`;
-
-            const encoded = encodeURIComponent(text);
-            window.open(`https://wa.me/9647701070005?text=${encoded}`, '_blank');
-        }
-
-        function renderOrdersStatus() {
-            checkDailyRevenueReset();
-
-            const revElem = document.getElementById('status-total-revenue');
-            const unpaidElem = document.getElementById('status-unpaid-count');
-            const paidElem = document.getElementById('status-paid-count');
-            const unpaidGrid = document.getElementById('unpaid-orders-grid');
-
-            if (revElem) revElem.innerText = formatPrice(totalRevenue);
-            if (unpaidElem) unpaidElem.innerText = activeHallOrders.filter(o => !o.paid).length;
-            if (paidElem) paidElem.innerText = paidOrdersCount;
-
-            if (!unpaidGrid) return;
-
-            const unpaidOrders = activeHallOrders.filter(o => !o.paid);
-
-            if (unpaidOrders.length === 0) {
-                unpaidGrid.innerHTML = `
-                    <div class="col-span-full text-center py-12 text-ivory/60 font-bold bg-charcoal-700/50 rounded-2xl border border-charcoal-100">
-                        <i class="fa-solid fa-receipt text-3xl mb-2 text-emerald-400 block"></i>
-                        <span>لا توجد طلبات جارية بانتظار الدفع حالياً.</span>
-                    </div>
-                `;
-                return;
-            }
-
-            unpaidGrid.innerHTML = unpaidOrders.map(order => `
-                <div class="p-5 bg-charcoal-700 rounded-2xl border border-charcoal-100 flex flex-col justify-between space-y-4 shadow-md">
-                    <div>
-                        <div class="flex items-center justify-between border-b border-charcoal-100 pb-3 mb-3">
-                            <span class="bg-ivory text-charcoal font-black text-xs px-3 py-1 rounded-xl">طاولة #${order.tableNumber}</span>
-                            <span class="text-xs font-bold text-ivory/60">${order.time}</span>
-                        </div>
-
-                        <div class="space-y-1.5 mb-3">
-                            ${order.items.map(i => `
-                                <div class="flex justify-between text-xs font-bold text-ivory/90">
-                                    <span>${i.name} × ${i.quantity}</span>
-                                    <span>${formatPrice(i.price * i.quantity)}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-
-                        <div class="pt-2 border-t border-charcoal-100/60 flex justify-between items-center text-sm font-black">
-                            <span class="text-ivory/80">المبلغ المطلوب:</span>
-                            <span class="text-emerald-400">${formatPrice(order.totalPrice)}</span>
-                        </div>
-                    </div>
-
-                    <button onclick="markOrderAsPaid('${order.id}')" class="w-full ivory-btn font-black py-3 rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 text-xs">
-                        <i class="fa-solid fa-check"></i>
-                        <span>تم الدفع</span>
-                    </button>
-                </div>
-            `).join('');
-        }
-
-        function markOrderAsPaid(orderId) {
-            const order = activeHallOrders.find(o => o.id === orderId);
-            if (order) {
-                order.paid = true;
-                totalRevenue += order.totalPrice;
-                paidOrdersCount++;
-                showToast(`تم دفع حساب الطاولة #${order.tableNumber} واحتسابه في الإيرادات ✅`);
-            }
-            renderOrdersStatus();
-        }
-
-        // Business Day Helper (Resets daily at 8:00 AM)
-        function getBusinessDayKey(d = new Date()) {
-            const dateCopy = new Date(d);
-            if (dateCopy.getHours() < 8) {
-                dateCopy.setDate(dateCopy.getDate() - 1);
-            }
-            return `${dateCopy.getFullYear()}-${dateCopy.getMonth() + 1}-${dateCopy.getDate()}`;
-        }
-
-        function checkDailyRevenueReset() {
-            const currentKey = getBusinessDayKey();
-            if (lastBusinessDayKey !== currentKey) {
-                lastBusinessDayKey = currentKey;
-                totalRevenue = 0;
-                paidOrdersCount = 0;
-            }
         }
 
         function switchTab(tabId) {
@@ -1903,7 +2551,6 @@
 
             const now = new Date();
             const timeFormatted = now.toLocaleTimeString('ar-IQ', { hour: '2-digit', minute: '2-digit' });
-
             const orderTotalPrice = hallOrderCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
             const newOrder = {
@@ -1914,14 +2561,18 @@
                 time: timeFormatted,
                 timestamp: now.getTime(),
                 totalPrice: orderTotalPrice,
-                paid: false
+                paid: false,
+                status: 'preparing',
+                businessDayKey: window.getBusinessDayKey()
             };
 
-            // Order is sent to kitchen first
             kitchenOrders.unshift(newOrder);
+            if (window.cloudSaveOrder) {
+                window.cloudSaveOrder(newOrder);
+            }
 
             hallOrderCart = [];
-            tableNumInput.value = '';
+            if (tableNumInput) tableNumInput.value = '';
             if (notesInput) notesInput.value = '';
 
             renderHallDishGrid();
@@ -1929,6 +2580,24 @@
             updateKitchenBadges();
 
             showToast(`تم إرسال طلب الطاولة #${tableNum} للمطبخ بنجاح! 👨‍🍳`);
+        }
+
+        function markOrderAsPaid(orderId) {
+            const order = activeHallOrders.find(o => o.id === orderId);
+            if (order) {
+                order.paid = true;
+                totalRevenue += order.totalPrice;
+                paidOrdersCount++;
+                window.totalRevenue = totalRevenue;
+                window.paidOrdersCount = paidOrdersCount;
+
+                if (window.cloudMarkOrderPaid) {
+                    window.cloudMarkOrderPaid(orderId);
+                }
+
+                showToast(`تم دفع حساب الطاولة #${order.tableNumber} واحتسابه في الإيرادات ✅`);
+            }
+            renderOrdersStatus();
         }
 
         function updateKitchenBadges() {
@@ -2031,6 +2700,59 @@
             `).join('');
         }
 
+        function renderOrdersStatus() {
+            const revElem = document.getElementById('status-total-revenue');
+            const unpaidElem = document.getElementById('status-unpaid-count');
+            const paidElem = document.getElementById('status-paid-count');
+            const grid = document.getElementById('unpaid-orders-grid');
+
+            if (revElem) revElem.innerText = formatPrice(totalRevenue);
+
+            const unpaidOrders = activeHallOrders.filter(o => !o.paid);
+            if (unpaidElem) unpaidElem.innerText = unpaidOrders.length;
+            if (paidElem) paidElem.innerText = paidOrdersCount;
+
+            if (!grid) return;
+
+            if (unpaidOrders.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-ivory/60 font-bold">
+                        لا توجد طلبات جارية بانتظار الدفع حالياً.
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = unpaidOrders.map(order => `
+                <div class="card-custom rounded-3xl p-5 border border-charcoal-100 bg-charcoal-700/50 flex flex-col justify-between shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-charcoal-100 mb-3">
+                            <span class="bg-ivory text-charcoal font-black text-sm px-3 py-1 rounded-xl">
+                                طاولة #${order.tableNumber}
+                            </span>
+                            <span class="text-xs font-bold text-ivory/60">${order.id}</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            ${order.items ? order.items.map(item => `
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="font-bold text-ivory">${item.name}</span>
+                                    <span class="text-ivory/70">× ${item.quantity}</span>
+                                </div>
+                            `).join('') : ''}
+                        </div>
+                        <div class="pt-3 border-t border-charcoal-100 flex items-center justify-between text-sm font-black mb-4">
+                            <span>المبلغ الكلي:</span>
+                            <span class="text-emerald-400">${formatPrice(order.totalPrice)}</span>
+                        </div>
+                    </div>
+                    <button onclick="markOrderAsPaid('${order.id}')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-xl shadow-md transition-all text-xs flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cash-register"></i>
+                        <span>تم الدفع</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
         function confirmCompleteKitchenOrder(orderId, tableNum) {
             deleteItemTarget = { type: 'kitchen-order', id: orderId };
             const modal = document.getElementById('confirm-modal');
@@ -2066,13 +2788,16 @@
                 const completedOrder = kitchenOrders[index];
                 const tableNum = completedOrder.tableNumber;
                 
-                // Remove from active kitchen preparation list
                 kitchenOrders.splice(index, 1);
                 completedOrdersCount++;
 
-                // Send to Orders Status screen for Cashier payment
                 if (!activeHallOrders.some(o => o.id === completedOrder.id)) {
+                    completedOrder.status = 'prepared';
                     activeHallOrders.unshift(completedOrder);
+                }
+
+                if (window.cloudUpdateOrderStatus) {
+                    window.cloudUpdateOrderStatus(orderId, 'prepared');
                 }
 
                 showToast(`تم إكمال تحضير طلب الطاولة #${tableNum} وتحويله لشاشة دفع الحسابات ✅`);
@@ -2082,350 +2807,22 @@
             closeConfirmModal();
         }
 
-        function openOfferModal(offerId = null) {
-            const modal = document.getElementById('offer-modal');
-            const title = document.getElementById('offer-modal-title');
-            const form = document.getElementById('offer-form');
-
-            if (!modal || !form) return;
-
-            form.reset();
-            document.getElementById('offer-id').value = '';
-            document.getElementById('offer-image-url').value = '';
-            document.getElementById('offer-image-preview').src = 'https://placehold.co/150x150/222222/F8F5F2?text=Offer';
-            document.getElementById('offer-file-name-display').innerText = 'لم يتم اختيار صورة بعد';
-
-            if (offerId) {
-                const offer = offers.find(o => o.id == offerId);
-                if (offer) {
-                    title.innerText = 'تعديل العرض';
-                    document.getElementById('offer-id').value = offer.id;
-                    document.getElementById('offer-title').value = offer.title;
-                    document.getElementById('offer-badge').value = offer.badge || '';
-                    document.getElementById('offer-tag').value = offer.tag || '';
-                    document.getElementById('offer-price').value = offer.price;
-                    document.getElementById('offer-oldprice').value = offer.oldPrice || '';
-                    document.getElementById('offer-desc').value = offer.desc;
-                    document.getElementById('offer-image-url').value = offer.image;
-                    document.getElementById('offer-image-preview').src = offer.image;
-                    document.getElementById('offer-file-name-display').innerText = 'صورة العرض الحالية';
+        window.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown && !dropdown.classList.contains('hidden')) {
+                const btn = e.target.closest('button[onclick*="toggleLanguageDropdown"]');
+                if (!btn) {
+                    dropdown.classList.add('hidden');
                 }
-            } else {
-                title.innerText = 'إضافة عرض جديد';
             }
+        });
 
-            modal.classList.remove('hidden');
-        }
-
-        function closeOfferModal() {
-            const modal = document.getElementById('offer-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        function handleOfferFileUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('offer-image-preview').src = e.target.result;
-                    document.getElementById('offer-image-url').value = e.target.result;
-                    document.getElementById('offer-file-name-display').innerText = file.name;
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function handleOfferSubmit(event) {
-            event.preventDefault();
-
-            const offerId = document.getElementById('offer-id').value;
-            const title = document.getElementById('offer-title').value;
-            const badge = document.getElementById('offer-badge').value;
-            const tag = document.getElementById('offer-tag').value;
-            const price = parseFloat(document.getElementById('offer-price').value);
-            const oldPrice = parseFloat(document.getElementById('offer-oldprice').value) || null;
-            const desc = document.getElementById('offer-desc').value;
-            let image = document.getElementById('offer-image-url').value;
-
-            if (!image) {
-                image = "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f6?auto=format&fit=crop&w=600&q=80";
-            }
-
-            if (offerId) {
-                const index = offers.findIndex(o => o.id == offerId);
-                if (index !== -1) {
-                    offers[index] = { id: parseInt(offerId), title, badge, tag, price, oldPrice, desc, image };
-                    showToast('تم تحديث العرض بنجاح!');
-                }
-            } else {
-                const newOffer = {
-                    id: Date.now(),
-                    title,
-                    badge,
-                    tag,
-                    price,
-                    oldPrice,
-                    desc,
-                    image
-                };
-                offers.push(newOffer);
-                showToast('تمت إضافة العرض الجديد بنجاح!');
-            }
-
-            renderHomeOffers();
-            renderAdminOffersTable();
-            closeOfferModal();
-        }
-
-        function renderAdminOffersTable() {
-            const tbody = document.getElementById('admin-offers-tbody');
-            if (!tbody) return;
-
-            if (offers.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="text-center py-6 text-ivory/60">لا توجد عروض مضافة حالياً.</td></tr>`;
-                return;
-            }
-
-            tbody.innerHTML = offers.map(o => `
-                <tr class="hover:bg-charcoal-700/50 transition-colors">
-                    <td class="p-4">
-                        <img src="${o.image}" class="w-12 h-12 rounded-xl object-cover border border-charcoal-100"
-                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/222222/F8F5F2?text=Offer';">
-                    </td>
-                    <td class="p-4 font-black">${o.title}</td>
-                    <td class="p-4"><span class="bg-amber-500 text-charcoal text-xs font-black px-2.5 py-0.5 rounded-full">${o.badge}</span></td>
-                    <td class="p-4">${o.tag ? `<span class="bg-charcoal-700 text-ivory text-xs px-2.5 py-0.5 rounded-full border border-charcoal-100">${o.tag}</span>` : '-'}</td>
-                    <td class="p-4 max-w-xs truncate text-xs text-ivory/80">${o.desc}</td>
-                    <td class="p-4 font-bold">${formatPrice(o.price)}</td>
-                    <td class="p-4 text-center">
-                        <div class="flex items-center justify-center gap-2">
-                            <button onclick="openOfferModal(${o.id})" class="p-2 bg-charcoal-700 hover:bg-charcoal-600 rounded-lg text-ivory border border-charcoal-100"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button onclick="confirmDeleteItem('offer', ${o.id}, '${o.title}')" class="p-2 bg-red-900/60 hover:bg-red-800 rounded-lg text-red-300 border border-red-700/60"><i class="fa-solid fa-trash-can"></i></button>
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
-        }
-
-        function openAddDishModal(dishId = null) {
-            const modal = document.getElementById('dish-modal');
-            const title = document.getElementById('modal-title');
-            const form = document.getElementById('dish-form');
-
-            if (!modal || !form) return;
-
-            form.reset();
-            document.getElementById('dish-id').value = '';
-            document.getElementById('dish-image-url').value = '';
-            document.getElementById('image-preview').src = 'https://placehold.co/150x150/222222/F8F5F2?text=Preview';
-            document.getElementById('file-name-display').innerText = 'لم يتم اختيار ملف جديد بعد';
-
-            if (dishId) {
-                const dish = menuItems.find(m => m.id == dishId);
-                if (dish) {
-                    title.innerText = 'تعديل بيانات الطبق';
-                    document.getElementById('dish-id').value = dish.id;
-                    document.getElementById('dish-name').value = dish.name;
-                    document.getElementById('dish-price').value = dish.price;
-                    document.getElementById('dish-category').value = dish.category;
-                    document.getElementById('dish-desc').value = dish.desc;
-                    document.getElementById('dish-image-url').value = dish.image;
-                    document.getElementById('image-preview').src = dish.image;
-                    document.getElementById('file-name-display').innerText = 'الصورة الحالية للطبق';
-                }
-            } else {
-                title.innerText = 'إضافة طبق جديد';
-            }
-
-            modal.classList.remove('hidden');
-        }
-
-        function closeDishModal() {
-            const modal = document.getElementById('dish-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('image-preview').src = e.target.result;
-                    document.getElementById('dish-image-url').value = e.target.result;
-                    document.getElementById('file-name-display').innerText = file.name;
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function handleDishSubmit(event) {
-            event.preventDefault();
-
-            const dishId = document.getElementById('dish-id').value;
-            const name = document.getElementById('dish-name').value;
-            const price = parseFloat(document.getElementById('dish-price').value);
-            const category = document.getElementById('dish-category').value;
-            const desc = document.getElementById('dish-desc').value;
-            let image = document.getElementById('dish-image-url').value;
-
-            if (!image) {
-                image = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80";
-            }
-
-            if (dishId) {
-                const index = menuItems.findIndex(m => m.id == dishId);
-                if (index !== -1) {
-                    menuItems[index] = { id: parseInt(dishId), name, price, category, desc, image };
-                    showToast('تم تحديث بيانات الطبق بنجاح!');
-                }
-            } else {
-                const newDish = {
-                    id: Date.now(),
-                    name,
-                    price,
-                    category,
-                    desc,
-                    image
-                };
-                menuItems.push(newDish);
-                showToast('تمت إضافة الطبق الجديد بنجاح!');
-            }
-
-            updateAdminTable();
-            renderCategoryCards();
-            renderMenuGrid();
-            renderHallDishGrid();
-            closeDishModal();
-        }
-
-        function updateAdminTable() {
-            const tbody = document.getElementById('admin-dish-tbody');
-            if (!tbody) return;
-
-            if (menuItems.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="text-center py-6 text-ivory/60">لا توجد أطباق في النظام.</td></tr>`;
-                return;
-            }
-
-            tbody.innerHTML = menuItems.map(dish => {
-                const catObj = categories.find(c => c.id === dish.category);
-                const catName = catObj ? catObj.name : dish.category;
-
-                return `
-                    <tr class="hover:bg-charcoal-700/50 transition-colors">
-                        <td class="p-4">
-                            <img src="${dish.image}" class="w-12 h-12 rounded-xl object-cover border border-charcoal-100"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/222222/F8F5F2?text=Burger';">
-                        </td>
-                        <td class="p-4 font-black">${dish.name}</td>
-                        <td class="p-4"><span class="bg-charcoal-700 text-ivory text-xs px-2.5 py-1 rounded-full border border-charcoal-100 font-bold">${catName}</span></td>
-                        <td class="p-4 font-bold">${formatPrice(dish.price)}</td>
-                        <td class="p-4 max-w-xs truncate text-xs text-ivory/80">${dish.desc}</td>
-                        <td class="p-4 text-center">
-                            <div class="flex items-center justify-center gap-2">
-                                <button onclick="openAddDishModal(${dish.id})" class="p-2 bg-charcoal-700 hover:bg-charcoal-600 rounded-lg text-ivory border border-charcoal-100"><i class="fa-solid fa-pen-to-square"></i></button>
-                                <button onclick="confirmDeleteItem('dish', ${dish.id}, '${dish.name}')" class="p-2 bg-red-900/60 hover:bg-red-800 rounded-lg text-red-300 border border-red-700/60"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        function confirmDeleteItem(type, id, name) {
-            deleteItemTarget = { type, id, name };
-            const modal = document.getElementById('confirm-modal');
-            const titleElem = document.getElementById('confirm-title');
-            const msgElem = document.getElementById('confirm-message');
-            const actionBtn = document.getElementById('confirm-action-btn');
-            const modalIcon = document.getElementById('confirm-modal-icon');
-
-            if (titleElem) titleElem.innerText = 'تأكيد الحذف النهائي';
-            if (msgElem) {
-                msgElem.innerText = `هل أنت تأكد من رغبتك في حذف "${name}"؟ لا يمكن التراجع عن هذا الإجراء.`;
-            }
-
-            if (modalIcon) {
-                modalIcon.className = "w-16 h-16 bg-red-900/40 text-red-400 border border-red-700 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4";
-                modalIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
-            }
-
-            if (actionBtn) {
-                actionBtn.className = "flex-1 bg-red-700 hover:bg-red-800 text-white font-black py-3 rounded-xl shadow-md transition-all";
-                actionBtn.innerText = "تأكيد الحذف";
-                actionBtn.onclick = function() {
-                    executeDeleteItem(type, id);
-                };
-            }
-
-            if (modal) modal.classList.remove('hidden');
-        }
-
-        function closeConfirmModal() {
-            const modal = document.getElementById('confirm-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        function executeDeleteItem(type, id) {
-            if (type === 'dish') {
-                const index = menuItems.findIndex(m => m.id == id);
-                if (index !== -1) {
-                    const name = menuItems[index].name;
-                    menuItems.splice(index, 1);
-                    showToast(`تم حذف الطبق "${name}" بنجاح`, 'error');
-                }
-                updateAdminTable();
-                renderCategoryCards();
-                renderMenuGrid();
-                renderHallDishGrid();
-            } else if (type === 'offer') {
-                const index = offers.findIndex(o => o.id == id);
-                if (index !== -1) {
-                    const name = offers[index].title;
-                    offers.splice(index, 1);
-                    showToast(`تم حذف العرض "${name}" بنجاح`, 'error');
-                }
-                renderHomeOffers();
-                renderAdminOffersTable();
-            } else if (type === 'category') {
-                const index = categories.findIndex(c => c.id === id);
-                if (index !== -1) {
-                    const name = categories[index].name;
-                    categories.splice(index, 1);
-                    if (currentCategory === id) currentCategory = 'all';
-                    if (currentHallCategory === id) currentHallCategory = 'all';
-                    showToast(`تم حذف الصنف "${name}" بنجاح`, 'error');
-                }
-                updateCategoryDropdown();
-                renderCategoryCards();
-                renderHallCategoryPills();
-                renderMenuGrid();
-                renderHallDishGrid();
-                renderManageCategoriesList();
-                updateAdminTable();
-            }
-            closeConfirmModal();
-        }
-
-        // Global Window Function Bindings
+        // Global Window Function Exports
         window.switchTab = switchTab;
         window.toggleMobileNav = toggleMobileNav;
         window.openPinModal = openPinModal;
         window.closePinModal = closePinModal;
         window.handlePinSubmit = handlePinSubmit;
-
-        function toggleLanguageDropdown(e) {
-            if (e) e.stopPropagation();
-            const dropdown = document.getElementById('lang-dropdown');
-            if (dropdown) dropdown.classList.toggle('hidden');
-        }
-
-        document.addEventListener('click', function(e) {
-            const dropdown = document.getElementById('lang-dropdown');
-            if (dropdown && !dropdown.classList.contains('hidden')) {
-                dropdown.classList.add('hidden');
-            }
-        });
 
         window.toggleLanguageDropdown = toggleLanguageDropdown;
         window.selectLanguage = selectLanguage;
@@ -2443,10 +2840,14 @@
         window.filterCategory = filterCategory;
         window.filterHallCategory = filterHallCategory;
         window.filterHallDishes = filterHallDishes;
+        window.renderHallCategoryPills = renderHallCategoryPills;
+        window.renderHallDishGrid = renderHallDishGrid;
+        window.renderHallOrderSummary = renderHallOrderSummary;
         window.addToCart = addToCart;
         window.addOfferToCart = addOfferToCart;
         window.updateCartQty = updateCartQty;
         window.toggleCartModal = toggleCartModal;
+        window.updateCartUI = updateCartUI;
         window.placeOrder = placeOrder;
         window.updateHallQty = updateHallQty;
         window.handleHallOrderSubmit = handleHallOrderSubmit;
@@ -2464,8 +2865,14 @@
         window.handleDishSubmit = handleDishSubmit;
         window.confirmDeleteItem = confirmDeleteItem;
         window.closeConfirmModal = closeConfirmModal;
+        window.renderAdminOffersTable = renderAdminOffersTable;
+        window.updateAdminTable = updateAdminTable;
+        window.renderOrdersStatus = renderOrdersStatus;
+        window.renderHomeOffers = renderHomeOffers;
+        window.renderCategoryCards = renderCategoryCards;
+        window.renderMenuGrid = renderMenuGrid;
+        window.updateCategoryDropdown = updateCategoryDropdown;
 
-        // Hash Routing Function for direct URLs (e.g., #menu for QR Codes)
         function checkHashRoute() {
             const hash = window.location.hash.replace('#', '').trim();
             const cartBtn = document.querySelector('button[onclick="toggleCartModal()"]');
@@ -2484,6 +2891,9 @@
         window.addEventListener('hashchange', checkHashRoute);
 
         window.onload = function() {
+            updateBusinessStatus();
+            setInterval(updateBusinessStatus, 30000);
+
             updateCategoryDropdown();
             renderHomeOffers();
             renderCategoryCards();
@@ -2496,7 +2906,6 @@
             renderHallOrderSummary();
             renderKitchenOrders();
 
-            // Check URL hash on page load
             checkHashRoute();
         };
     </script>
